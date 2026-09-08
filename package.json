@@ -1,0 +1,40 @@
+{
+  "name": "forgeplay",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ForgePlay OBS Overlay",
+  "license": "ISC",
+  "author": "YURIY",
+  "main": "src/main/controller.js",
+  "type": "module",
+  "scripts": {
+    "dev-http": "http-server -p 3000 -c-1",
+    "dev-proxy": "node script/proxy.js",
+
+    "build:dev":   "node script/build.js",
+    "build:min":   "node script/build.js --min",
+    "build:clean": "node script/build.js --clean",
+
+    "build:exe:main": "node script/build.js --min && node script/build-exe.js",
+    "build:exe:temp": "node script/build.js --min && node script/build-rexe.js"
+  },
+  "dependencies": {
+    "comfy.js": "^1.1.29",
+    "nipplejs": "0.10.2"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "@yao-pkg/pkg": "^6.22.0",
+    "resedit": "^3.1.0",
+    "pe-library": "^2.0.1",
+
+    "http-server": "^14.1.1",
+    "express": "^5.2.1",
+    "http-proxy-middleware": "^4.2.0"
+  },
+  "pkg": {
+    "assets": [
+      "public/**/*"
+    ]
+  }
+}

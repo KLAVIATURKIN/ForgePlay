@@ -1,0 +1,244 @@
+{
+  "baseWidth": 1534,
+  "baseHeight": 954,
+  "basePath": "2DModels/XBOXSERIES/pink/XBSeries_base.png",
+  "stickMaxTravel": 30,
+  "overlays": [
+    {
+      "image": "2DModels/XBOXSERIES/pink/XBSeries_LeftTrigger_Active.png",
+      "target": "LeftTrigger",
+      "type": "trigger",
+      "x": 222,
+      "y": 0,
+      "w": 166,
+      "h": 129,
+      "inputKind": "axis",
+      "inputCode": 2
+    },
+    {
+      "image": "2DModels/XBOXSERIES/pink/XBSeries_LeftTrigger.png",
+      "target": "LeftTriggerBase",
+      "type": "triggerBase",
+      "x": 222,
+      "y": 0,
+      "w": 166,
+      "h": 129
+    },
+    {
+      "image": "2DModels/XBOXSERIES/pink/XBSeries_RightTrigger_Active.png",
+      "target": "RightTrigger",
+      "type": "trigger",
+      "x": 1134,
+      "y": 0,
+      "w": 164,
+      "h": 114,
+      "inputKind": "axis",
+      "inputCode": 5
+    },
+    {
+      "image": "2DModels/XBOXSERIES/pink/XBSeries_RightTrigger.png",
+      "target": "RightTriggerBase",
+      "type": "triggerBase",
+      "x": 1134,
+      "y": 0,
+      "w": 164,
+      "h": 114
+    },
+    {
+      "image": "2DModels/XBOXSERIES/pink/XBSeries_A_Button.png",
+      "target": "ButtonA",
+      "type": "button",
+      "x": 1122,
+      "y": 461,
+      "w": 109,
+      "h": 106,
+      "inputKind": "button",
+      "inputCode": 0
+    },
+    {
+      "image": "2DModels/XBOXSERIES/pink/XBSeries_B_Button.png",
+      "target": "ButtonB",
+      "type": "button",
+      "x": 1230,
+      "y": 353,
+      "w": 112,
+      "h": 107,
+      "inputKind": "button",
+      "inputCode": 1
+    },
+    {
+      "image": "2DModels/XBOXSERIES/pink/XBSeries_X_Button.png",
+      "target": "ButtonX",
+      "type": "button",
+      "x": 1013,
+      "y": 364,
+      "w": 114,
+      "h": 108,
+      "inputKind": "button",
+      "inputCode": 2
+    },
+    {
+      "image": "2DModels/XBOXSERIES/pink/XBSeries_Y_Button.png",
+      "target": "ButtonY",
+      "type": "button",
+      "x": 1123,
+      "y": 256,
+      "w": 118,
+      "h": 110,
+      "inputKind": "button",
+      "inputCode": 3
+    },
+    {
+      "image": "2DModels/XBOXSERIES/pink/XBSeries_LeftBumper_Active.png",
+      "target": "LeftShoulder",
+      "type": "button",
+      "x": 190,
+      "y": 59,
+      "w": 360,
+      "h": 124,
+      "inputKind": "button",
+      "inputCode": 4
+    },
+    {
+      "image": "2DModels/XBOXSERIES/pink/XBSeries_RightBumper_Active.png",
+      "target": "RightShoulder",
+      "type": "button",
+      "x": 983,
+      "y": 59,
+      "w": 360,
+      "h": 123,
+      "inputKind": "button",
+      "inputCode": 5
+    },
+    {
+      "image": "2DModels/XBOXSERIES/pink/XBSeries_MenuButton.png",
+      "target": "ButtonStart",
+      "type": "button",
+      "x": 846,
+      "y": 385,
+      "w": 76,
+      "h": 70,
+      "inputKind": "button",
+      "inputCode": 7
+    },
+    {
+      "image": "2DModels/XBOXSERIES/pink/XBSeries_ViewButton.png",
+      "target": "ButtonBack",
+      "type": "button",
+      "x": 612,
+      "y": 385,
+      "w": 76,
+      "h": 70,
+      "inputKind": "button",
+      "inputCode": 6
+    },
+    {
+      "image": "2DModels/XBOXSERIES/pink/XBSeries_HomeButton.png",
+      "target": "ButtonGuide",
+      "type": "button",
+      "x": 701,
+      "y": 204,
+      "w": 132,
+      "h": 125,
+      "inputKind": "button",
+      "inputCode": 10
+    },
+    {
+      "image": "2DModels/XBOXSERIES/pink/XBSeries_LeftStick.png",
+      "target": "LeftThumbRing",
+      "type": "stickRing",
+      "x": 264,
+      "y": 355,
+      "w": 177,
+      "h": 176,
+      "inputKind": "stick",
+      "inputCode": 0
+    },
+    {
+      "image": "2DModels/XBOXSERIES/pink/XBSeries_RightStick.png",
+      "target": "RightThumbRing",
+      "type": "stickRing",
+      "x": 886,
+      "y": 586,
+      "w": 180,
+      "h": 170,
+      "inputKind": "stick",
+      "inputCode": 3
+    },
+    {
+      "image": "2DModels/XBOXSERIES/pink/XBSeries_LeftStick_Click.png",
+      "target": "LeftThumbButton",
+      "type": "stickClick",
+      "x": 264,
+      "y": 355,
+      "w": 177,
+      "h": 176,
+      "inputKind": "button",
+      "inputCode": 8
+    },
+    {
+      "image": "2DModels/XBOXSERIES/pink/XBSeries_RightStick_Click.png",
+      "target": "RightThumbButton",
+      "type": "stickClick",
+      "x": 886,
+      "y": 586,
+      "w": 180,
+      "h": 170,
+      "inputKind": "button",
+      "inputCode": 9
+    },
+    {
+      "image": "2DModels/XBOXSERIES/pink/XBSeries_D-PAD_Up.png",
+      "target": "DPadUp",
+      "type": "button",
+      "x": 520,
+      "y": 562,
+      "w": 76,
+      "h": 69,
+      "inputKind": "dpad",
+      "inputCode": 0
+    },
+    {
+      "image": "2DModels/XBOXSERIES/pink/XBSeries_D-PAD_Down.png",
+      "target": "DPadDown",
+      "type": "button",
+      "x": 524,
+      "y": 689,
+      "w": 69,
+      "h": 69,
+      "inputKind": "dpad",
+      "inputCode": 18000
+    },
+    {
+      "image": "2DModels/XBOXSERIES/pink/XBSeries_D-PAD_Left.png",
+      "target": "DPadLeft",
+      "type": "button",
+      "x": 443,
+      "y": 628,
+      "w": 80,
+      "h": 63,
+      "inputKind": "dpad",
+      "inputCode": 27000
+    },
+    {
+      "image": "2DModels/XBOXSERIES/pink/XBSeries_D-PAD_Right.png",
+      "target": "DPadRight",
+      "type": "button",
+      "x": 593,
+      "y": 628,
+      "w": 80,
+      "h": 64,
+      "inputKind": "dpad",
+      "inputCode": 9000
+    },
+    {
+      "image": "2DModels/XBOXSERIES/pink/XBSeries_ShareButton.png",
+      "target": "ButtonShare",
+      "type": "button",
+      "x": 722,
+      "y": 479,
+      "w": 87,
+      "h": 49
+    }
+  ]
+}

@@ -1,0 +1,264 @@
+{
+  "baseWidth": 1467,
+  "baseHeight": 816,
+  "basePath": "2DModels/DualSense/wlg/DualSense_base.png",
+  "stickMaxTravel": 25,
+  "overlays": [
+    {
+      "image": "2DModels/DualSense/wlg/DualSense_L2-Active.png",
+      "target": "LeftTrigger",
+      "type": "trigger",
+      "x": 170,
+      "y": 1,
+      "w": 201,
+      "h": 152,
+      "inputKind": "axis",
+      "inputCode": 2
+    },
+    {
+      "image": "2DModels/DualSense/wlg/DualSense_L2.png",
+      "target": "LeftTriggerBase",
+      "type": "triggerBase",
+      "x": 170,
+      "y": 1,
+      "w": 201,
+      "h": 152
+    },
+    {
+      "image": "2DModels/DualSense/wlg/DualSense_R2-Active.png",
+      "target": "RightTrigger",
+      "type": "trigger",
+      "x": 1098,
+      "y": 0,
+      "w": 197,
+      "h": 149,
+      "inputKind": "axis",
+      "inputCode": 5
+    },
+    {
+      "image": "2DModels/DualSense/wlg/DualSense_R2.png",
+      "target": "RightTriggerBase",
+      "type": "triggerBase",
+      "x": 1098,
+      "y": 0,
+      "w": 197,
+      "h": 149
+    },
+    {
+      "image": "2DModels/DualSense/wlg/DualSense_Cross.png",
+      "target": "ButtonA",
+      "type": "button",
+      "x": 1154,
+      "y": 478,
+      "w": 97,
+      "h": 84,
+      "inputKind": "button",
+      "inputCode": 0
+    },
+    {
+      "image": "2DModels/DualSense/wlg/DualSense_Circle.png",
+      "target": "ButtonB",
+      "type": "button",
+      "x": 1268,
+      "y": 380,
+      "w": 98,
+      "h": 93,
+      "inputKind": "button",
+      "inputCode": 1
+    },
+    {
+      "image": "2DModels/DualSense/wlg/DualSense_Square.png",
+      "target": "ButtonX",
+      "type": "button",
+      "x": 1046,
+      "y": 386,
+      "w": 99,
+      "h": 89,
+      "inputKind": "button",
+      "inputCode": 2
+    },
+    {
+      "image": "2DModels/DualSense/wlg/DualSense_Triangle.png",
+      "target": "ButtonY",
+      "type": "button",
+      "x": 1159,
+      "y": 289,
+      "w": 100,
+      "h": 95,
+      "inputKind": "button",
+      "inputCode": 3
+    },
+    {
+      "image": "2DModels/DualSense/wlg/DualSense_D-PAD_Up.png",
+      "target": "DPadUp",
+      "type": "button",
+      "x": 217,
+      "y": 320,
+      "w": 86,
+      "h": 98,
+      "inputKind": "dpad",
+      "inputCode": 0
+    },
+    {
+      "image": "2DModels/DualSense/wlg/DualSense_D-PAD_Down.png",
+      "target": "DPadDown",
+      "type": "button",
+      "x": 218,
+      "y": 441,
+      "w": 86,
+      "h": 95,
+      "inputKind": "dpad",
+      "inputCode": 18000
+    },
+    {
+      "image": "2DModels/DualSense/wlg/DualSense_D-PAD_Left.png",
+      "target": "DPadLeft",
+      "type": "button",
+      "x": 135,
+      "y": 390,
+      "w": 104,
+      "h": 80,
+      "inputKind": "dpad",
+      "inputCode": 27000
+    },
+    {
+      "image": "2DModels/DualSense/wlg/DualSense_D-PAD_Right.png",
+      "target": "DPadRight",
+      "type": "button",
+      "x": 282,
+      "y": 390,
+      "w": 105,
+      "h": 80,
+      "inputKind": "dpad",
+      "inputCode": 9000
+    },
+    {
+      "image": "2DModels/DualSense/wlg/DualSense_L1-Active.png",
+      "target": "LeftShoulder",
+      "type": "button",
+      "x": 156,
+      "y": 85,
+      "w": 210,
+      "h": 124,
+      "inputKind": "button",
+      "inputCode": 4
+    },
+    {
+      "image": "2DModels/DualSense/wlg/DualSense_R1-Active.png",
+      "target": "RightShoulder",
+      "type": "button",
+      "x": 1100,
+      "y": 85,
+      "w": 210,
+      "h": 124,
+      "inputKind": "button",
+      "inputCode": 5
+    },
+    {
+      "image": "2DModels/DualSense/wlg/DualSense_Create_Button.png",
+      "target": "ButtonBack",
+      "type": "button",
+      "x": 354,
+      "y": 258,
+      "w": 47,
+      "h": 63,
+      "inputKind": "button",
+      "inputCode": 6
+    },
+    {
+      "image": "2DModels/DualSense/wlg/DualSense_Option_Button.png",
+      "target": "ButtonStart",
+      "type": "button",
+      "x": 1068,
+      "y": 258,
+      "w": 47,
+      "h": 63,
+      "inputKind": "button",
+      "inputCode": 7
+    },
+    {
+      "image": "2DModels/DualSense/wlg/DualSense_Home_Button.png",
+      "target": "ButtonGuide",
+      "type": "button",
+      "x": 690,
+      "y": 547,
+      "w": 93,
+      "h": 51,
+      "inputKind": "button",
+      "inputCode": 10
+    },
+    {
+      "image": "2DModels/DualSense/wlg/DualSense_Mute_Button.png",
+      "target": "ButtonMute",
+      "type": "button",
+      "x": 696,
+      "y": 624,
+      "w": 81,
+      "h": 13
+    },
+    {
+      "image": "2DModels/DualSense/wlg/DualSense_LeftAnalogStick.png",
+      "target": "LeftThumbRing",
+      "type": "stickRing",
+      "x": 406,
+      "y": 560,
+      "w": 175,
+      "h": 148,
+      "inputKind": "stick",
+      "inputCode": 0
+    },
+    {
+      "image": "2DModels/DualSense/wlg/DualSense_RightAnalogStick.png",
+      "target": "RightThumbRing",
+      "type": "stickRing",
+      "x": 888,
+      "y": 561,
+      "w": 175,
+      "h": 148,
+      "inputKind": "stick",
+      "inputCode": 3
+    },
+    {
+      "image": "2DModels/DualSense/wlg/DualSense_AnalogStick_Click.png",
+      "target": "LeftThumbButton",
+      "type": "stickClick",
+      "x": 408,
+      "y": 560,
+      "w": 171,
+      "h": 148,
+      "inputKind": "button",
+      "inputCode": 8
+    },
+    {
+      "image": "2DModels/DualSense/wlg/DualSense_AnalogStick_Click.png",
+      "target": "RightThumbButton",
+      "type": "stickClick",
+      "x": 890,
+      "y": 561,
+      "w": 171,
+      "h": 148,
+      "inputKind": "button",
+      "inputCode": 9
+    },
+    {
+      "image": "2DModels/DualSense/wlg/DualSense_Touchpad-Click.png",
+      "target": "TouchpadClick",
+      "type": "button",
+      "x": 423,
+      "y": 160,
+      "w": 621,
+      "h": 322,
+      "inputKind": "button",
+      "inputCode": 16
+    },
+    {
+      "image": "2DModels/DualSense/wlg/",
+      "target": "Touchpad",
+      "type": "touchpad",
+      "x": 484,
+      "y": 220,
+      "w": 499,
+      "h": 220
+    }
+  ]
+}

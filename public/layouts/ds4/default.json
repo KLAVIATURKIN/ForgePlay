@@ -1,0 +1,255 @@
+{
+  "baseWidth": 1466,
+  "baseHeight": 783,
+  "basePath": "2DModels/DS4/DS4_V2_base.png",
+  "stickMaxTravel": 25,
+  "overlays": [
+    {
+      "image": "2DModels/DS4/DS4_L2-Active.png",
+      "target": "LeftTrigger",
+      "type": "trigger",
+      "x": 217,
+      "y": 0,
+      "w": 164,
+      "h": 94,
+      "inputKind": "axis",
+      "inputCode": 2
+    },
+    {
+      "image": "2DModels/DS4/DS4_L2.png",
+      "target": "LeftTriggerBase",
+      "type": "triggerBase",
+      "x": 217,
+      "y": 0,
+      "w": 164,
+      "h": 94
+    },
+    {
+      "image": "2DModels/DS4/DS4_R2-Active.png",
+      "target": "RightTrigger",
+      "type": "trigger",
+      "x": 1085,
+      "y": 0,
+      "w": 164,
+      "h": 94,
+      "inputKind": "axis",
+      "inputCode": 5
+    },
+    {
+      "image": "2DModels/DS4/DS4_R2.png",
+      "target": "RightTriggerBase",
+      "type": "triggerBase",
+      "x": 1085,
+      "y": 0,
+      "w": 164,
+      "h": 94
+    },
+    {
+      "image": "2DModels/DS4/DS4_Face_Button.png",
+      "target": "ButtonA",
+      "type": "button",
+      "x": 1124,
+      "y": 445,
+      "w": 99,
+      "h": 90,
+      "inputKind": "button",
+      "inputCode": 0
+    },
+    {
+      "image": "2DModels/DS4/DS4_Face_Button.png",
+      "target": "ButtonB",
+      "type": "button",
+      "x": 1230,
+      "y": 355,
+      "w": 99,
+      "h": 90,
+      "inputKind": "button",
+      "inputCode": 1
+    },
+    {
+      "image": "2DModels/DS4/DS4_Face_Button.png",
+      "target": "ButtonX",
+      "type": "button",
+      "x": 1022,
+      "y": 354,
+      "w": 99,
+      "h": 90,
+      "inputKind": "button",
+      "inputCode": 2
+    },
+    {
+      "image": "2DModels/DS4/DS4_Face_Button.png",
+      "target": "ButtonY",
+      "type": "button",
+      "x": 1124,
+      "y": 263,
+      "w": 99,
+      "h": 90,
+      "inputKind": "button",
+      "inputCode": 3
+    },
+    {
+      "image": "2DModels/DS4/DS4_D-PAD_Up.png",
+      "target": "DPadUp",
+      "type": "button",
+      "x": 250,
+      "y": 292,
+      "w": 82,
+      "h": 90,
+      "inputKind": "dpad",
+      "inputCode": 0
+    },
+    {
+      "image": "2DModels/DS4/DS4_D-PAD_Down.png",
+      "target": "DPadDown",
+      "type": "button",
+      "x": 250,
+      "y": 413,
+      "w": 82,
+      "h": 95,
+      "inputKind": "dpad",
+      "inputCode": 18000
+    },
+    {
+      "image": "2DModels/DS4/DS4_D-PAD_Left.png",
+      "target": "DPadLeft",
+      "type": "button",
+      "x": 175,
+      "y": 361,
+      "w": 101,
+      "h": 79,
+      "inputKind": "dpad",
+      "inputCode": 27000
+    },
+    {
+      "image": "2DModels/DS4/DS4_D-PAD_Right.png",
+      "target": "DPadRight",
+      "type": "button",
+      "x": 308,
+      "y": 361,
+      "w": 101,
+      "h": 78,
+      "inputKind": "dpad",
+      "inputCode": 9000
+    },
+    {
+      "image": "2DModels/DS4/DS4_L1-Active.png",
+      "target": "LeftShoulder",
+      "type": "button",
+      "x": 190,
+      "y": 71,
+      "w": 199,
+      "h": 99,
+      "inputKind": "button",
+      "inputCode": 4
+    },
+    {
+      "image": "2DModels/DS4/DS4_R1-Active.png",
+      "target": "RightShoulder",
+      "type": "button",
+      "x": 1076,
+      "y": 70,
+      "w": 199,
+      "h": 99,
+      "inputKind": "button",
+      "inputCode": 5
+    },
+    {
+      "image": "2DModels/DS4/DS4_OptionsShare_Button.png",
+      "target": "ButtonBack",
+      "type": "button",
+      "x": 416,
+      "y": 229,
+      "w": 53,
+      "h": 85,
+      "inputKind": "button",
+      "inputCode": 6
+    },
+    {
+      "image": "2DModels/DS4/DS4_OptionsShare_Button.png",
+      "target": "ButtonStart",
+      "type": "button",
+      "x": 996,
+      "y": 229,
+      "w": 53,
+      "h": 85,
+      "inputKind": "button",
+      "inputCode": 7
+    },
+    {
+      "image": "2DModels/DS4/DS4_Home_Button.png",
+      "target": "ButtonGuide",
+      "type": "button",
+      "x": 688,
+      "y": 519,
+      "w": 87,
+      "h": 60,
+      "inputKind": "button",
+      "inputCode": 10
+    },
+    {
+      "image": "2DModels/DS4/DS4_V2_LeftAnalogStick.png",
+      "target": "LeftThumbRing",
+      "type": "stickRing",
+      "x": 427,
+      "y": 530,
+      "w": 165,
+      "h": 147,
+      "inputKind": "stick",
+      "inputCode": 0
+    },
+    {
+      "image": "2DModels/DS4/DS4_V2_RightAnalogStick.png",
+      "target": "RightThumbRing",
+      "type": "stickRing",
+      "x": 874,
+      "y": 530,
+      "w": 165,
+      "h": 147,
+      "inputKind": "stick",
+      "inputCode": 3
+    },
+    {
+      "image": "2DModels/DS4/DS4_AnalogStick_Click.png",
+      "target": "LeftThumbButton",
+      "type": "stickClick",
+      "x": 427,
+      "y": 528,
+      "w": 165,
+      "h": 147,
+      "inputKind": "button",
+      "inputCode": 8
+    },
+    {
+      "image": "2DModels/DS4/DS4_AnalogStick_Click.png",
+      "target": "RightThumbButton",
+      "type": "stickClick",
+      "x": 875,
+      "y": 528,
+      "w": 165,
+      "h": 147,
+      "inputKind": "button",
+      "inputCode": 9
+    },
+    {
+      "image": "2DModels/DS4/DS4_Touchpad_Click.png",
+      "target": "TouchpadClick",
+      "type": "button",
+      "x": 492,
+      "y": 148,
+      "w": 482,
+      "h": 289,
+      "inputKind": "button",
+      "inputCode": 16
+    },
+    {
+      "image": "2DModels/DS4/",
+      "target": "Touchpad",
+      "type": "touchpad",
+      "x": 496,
+      "y": 230,
+      "w": 471,
+      "h": 200
+    }
+  ]
+}

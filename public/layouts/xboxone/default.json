@@ -1,0 +1,235 @@
+{
+  "baseWidth": 1543,
+  "baseHeight": 956,
+  "basePath": "2DModels/XBOXONE/XB1_S_base.png",
+  "stickMaxTravel": 30,
+  "overlays": [
+    {
+      "image": "2DModels/XBOXONE/XB1_LeftTrigger_Active.png",
+      "target": "LeftTrigger",
+      "type": "trigger",
+      "x": 188,
+      "y": 1,
+      "w": 206,
+      "h": 188,
+      "inputKind": "axis",
+      "inputCode": 2
+    },
+    {
+      "image": "2DModels/XBOXONE/XB1_LeftTrigger.png",
+      "target": "LeftTriggerBase",
+      "type": "triggerBase",
+      "x": 188,
+      "y": 1,
+      "w": 206,
+      "h": 188
+    },
+    {
+      "image": "2DModels/XBOXONE/XB1_RightTrigger_Active.png",
+      "target": "RightTrigger",
+      "type": "trigger",
+      "x": 1150,
+      "y": 0,
+      "w": 208,
+      "h": 189,
+      "inputKind": "axis",
+      "inputCode": 5
+    },
+    {
+      "image": "2DModels/XBOXONE/XB1_RightTrigger.png",
+      "target": "RightTriggerBase",
+      "type": "triggerBase",
+      "x": 1150,
+      "y": 0,
+      "w": 208,
+      "h": 189
+    },
+    {
+      "image": "2DModels/XBOXONE/XB1_A_Button.png",
+      "target": "ButtonA",
+      "type": "button",
+      "x": 1145,
+      "y": 534,
+      "w": 115,
+      "h": 107,
+      "inputKind": "button",
+      "inputCode": 0
+    },
+    {
+      "image": "2DModels/XBOXONE/XB1_B_Button.png",
+      "target": "ButtonB",
+      "type": "button",
+      "x": 1270,
+      "y": 426,
+      "w": 114,
+      "h": 107,
+      "inputKind": "button",
+      "inputCode": 1
+    },
+    {
+      "image": "2DModels/XBOXONE/XB1_X_Button.png",
+      "target": "ButtonX",
+      "type": "button",
+      "x": 1032,
+      "y": 439,
+      "w": 119,
+      "h": 108,
+      "inputKind": "button",
+      "inputCode": 2
+    },
+    {
+      "image": "2DModels/XBOXONE/XB1_Y_Button.png",
+      "target": "ButtonY",
+      "type": "button",
+      "x": 1158,
+      "y": 333,
+      "w": 118,
+      "h": 110,
+      "inputKind": "button",
+      "inputCode": 3
+    },
+    {
+      "image": "2DModels/XBOXONE/XB1_LeftBumper_Active.png",
+      "target": "LeftShoulder",
+      "type": "button",
+      "x": 161,
+      "y": 119,
+      "w": 378,
+      "h": 146,
+      "inputKind": "button",
+      "inputCode": 4
+    },
+    {
+      "image": "2DModels/XBOXONE/XB1_RightBumper_Active.png",
+      "target": "RightShoulder",
+      "type": "button",
+      "x": 1006,
+      "y": 120,
+      "w": 378,
+      "h": 145,
+      "inputKind": "button",
+      "inputCode": 5
+    },
+    {
+      "image": "2DModels/XBOXONE/XB1_MenuButton.png",
+      "target": "ButtonStart",
+      "type": "button",
+      "x": 856,
+      "y": 460,
+      "w": 75,
+      "h": 70,
+      "inputKind": "button",
+      "inputCode": 7
+    },
+    {
+      "image": "2DModels/XBOXONE/XB1_ViewButton.png",
+      "target": "ButtonBack",
+      "type": "button",
+      "x": 610,
+      "y": 460,
+      "w": 75,
+      "h": 70,
+      "inputKind": "button",
+      "inputCode": 6
+    },
+    {
+      "image": "2DModels/XBOXONE/XB1_HomeButton.png",
+      "target": "ButtonGuide",
+      "type": "button",
+      "x": 708,
+      "y": 276,
+      "w": 124,
+      "h": 117,
+      "inputKind": "button",
+      "inputCode": 10
+    },
+    {
+      "image": "2DModels/XBOXONE/XB1_LeftStick.png",
+      "target": "LeftThumbRing",
+      "type": "stickRing",
+      "x": 254,
+      "y": 422,
+      "w": 181,
+      "h": 180,
+      "inputKind": "stick",
+      "inputCode": 0
+    },
+    {
+      "image": "2DModels/XBOXONE/XB1_RightStick.png",
+      "target": "RightThumbRing",
+      "type": "stickRing",
+      "x": 892,
+      "y": 658,
+      "w": 186,
+      "h": 176,
+      "inputKind": "stick",
+      "inputCode": 3
+    },
+    {
+      "image": "2DModels/XBOXONE/XB1_LeftStick_Click.png",
+      "target": "LeftThumbButton",
+      "type": "stickClick",
+      "x": 254,
+      "y": 422,
+      "w": 181,
+      "h": 180,
+      "inputKind": "button",
+      "inputCode": 8
+    },
+    {
+      "image": "2DModels/XBOXONE/XB1_RightStick_Click.png",
+      "target": "RightThumbButton",
+      "type": "stickClick",
+      "x": 892,
+      "y": 658,
+      "w": 186,
+      "h": 176,
+      "inputKind": "button",
+      "inputCode": 9
+    },
+    {
+      "image": "2DModels/XBOXONE/XB1_D-PAD_Up.png",
+      "target": "DPadUp",
+      "type": "button",
+      "x": 504,
+      "y": 624,
+      "w": 95,
+      "h": 96,
+      "inputKind": "dpad",
+      "inputCode": 0
+    },
+    {
+      "image": "2DModels/XBOXONE/XB1_D-PAD_Down.png",
+      "target": "DPadDown",
+      "type": "button",
+      "x": 506,
+      "y": 719,
+      "w": 90,
+      "h": 96,
+      "inputKind": "dpad",
+      "inputCode": 18000
+    },
+    {
+      "image": "2DModels/XBOXONE/XB1_D-PAD_Left.png",
+      "target": "DPadLeft",
+      "type": "button",
+      "x": 433,
+      "y": 678,
+      "w": 118,
+      "h": 83,
+      "inputKind": "dpad",
+      "inputCode": 27000
+    },
+    {
+      "image": "2DModels/XBOXONE/XB1_D-PAD_Right.png",
+      "target": "DPadRight",
+      "type": "button",
+      "x": 551,
+      "y": 678,
+      "w": 118,
+      "h": 84,
+      "inputKind": "dpad",
+      "inputCode": 9000
+    }
+  ]
+}

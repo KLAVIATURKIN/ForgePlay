@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <title>Controller Setup</title>
+    <style>
+        :root{
+            --bg:#0b0d11; --panel:#11151c; --panel-2:#151a22; --line:#252c38;
+            --text:#edf2f7; --muted:#8d98a8; --accent:#7c5cff; --accent-2:#9a84ff;
+            --danger:#ff6b81; --shadow:0 24px 70px #0008; --radius:18px;
+        }
+        *{box-sizing:border-box}
+        body{margin:0;min-height:100vh;background:
+                radial-gradient(700px 420px at 12% -10%,#7c5cff18,transparent 60%),
+                radial-gradient(700px 420px at 100% 0%,#20d4ff10,transparent 60%),var(--bg);
+            color:var(--text);font:14px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+        .wrap{width:min(980px,calc(100% - 32px));margin:0 auto;padding:46px 0 56px}
+        .hero{margin-bottom:24px}
+        .eyebrow{color:var(--accent-2);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+        h1{margin:0;font-size:clamp(28px,5vw,42px);letter-spacing:-.04em}
+        .hero-row{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+        .sub{margin:9px 0 0;color:var(--muted);max-width:680px}
+        .panel{background:linear-gradient(180deg,#141923eF,#0f1319f5);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+        .section + .section{margin-top:20px}
+        .section-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px}
+        .section-title{font-size:16px;font-weight:750;margin:0}
+        .section-note{font-size:12px;color:var(--muted);margin:3px 0 0}
+        .advanced-toggle{display:flex;align-items:center;gap:9px;white-space:nowrap;color:var(--muted);font-size:12px;font-weight:700}
+        .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}.layout-grid{min-height:164px}.color-grid{min-height:164px}
+        .card{position:relative;background:var(--panel-2);border:1px solid var(--line);border-radius:16px;overflow:hidden;cursor:pointer;transition:.18s ease}
+        .card:hover{transform:translateY(-2px);border-color:#3b4658}
+        .card.selected{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 12px 30px #7c5cff18}
+        .card input{position:absolute;opacity:0;pointer-events:none}
+        .preview{height:150px;background:#0b0e13;display:grid;place-items:center;overflow:hidden}
+        .preview img{width:100%;height:100%;object-fit:contain;display:block;max-width:100%;max-height:100%}
+        .fallback-preview{font-weight:750;font-size:12px;color:#697586;letter-spacing:.08em;text-transform:uppercase}
+        .card-body{padding:11px 12px 12px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+        .name{font-weight:700;text-transform:lowercase;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+        .badge{font-size:11px;color:var(--muted);font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+        details{border:1px solid var(--line);border-radius:16px;background:#0f1319aa;overflow:hidden}
+        details.twitch{background:linear-gradient(180deg,#161222cc,#0f1319d9);border-color:#34284dcc}
+        details.websocket{background:linear-gradient(180deg,#1a1510cc,#0f1319d9);border-color:#403025cc}
+        details.twitch summary:hover{background:#8b5cf60d}
+        details.websocket summary:hover{background:#f59e0b0d}
+        details.twitch[open] summary{background:#8b5cf60a}
+        details.websocket[open] summary{background:#f59e0b0a}
+        details.twitch .details-body{border-top-color:#34284d}
+        details.websocket .details-body{border-top-color:#403025}
+        details summary{list-style:none;cursor:pointer;padding:15px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-weight:700}
+        details summary::-webkit-details-marker{display:none}
+        details summary::after{content:"+";color:var(--muted);font-size:18px}
+        details[open] summary::after{content:"−"}
+        .optional{color:var(--muted);font-size:12px;font-weight:500}
+        .details-body{padding:0 16px 16px;border-top:1px solid var(--line)}
+        .form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
+        .field{min-width:0}.field.full{grid-column:1/-1}
+        label{display:flex;justify-content:space-between;gap:8px;font-size:12px;font-weight:700;color:#b9c2cf;margin:0 0 7px}
+        input[type=text],input[type=password],input[type=number]{width:100%;background:#0a0d12;border:1px solid #27303d;border-radius:12px;color:var(--text);padding:11px 12px;outline:none;transition:.15s}
+        input:focus{border-color:var(--accent);box-shadow:0 0 0 3px #7c5cff1a}
+        .muted-input{color:#7f8997;border-color:#2a313d;background:#0d1015}
+        .client.has-value{color:var(--text);border-color:#3d5f4f;background:#0d1612;box-shadow:0 0 0 1px #5fe0a322 inset}
+        .hint{font-size:11px;color:#687385;margin-top:6px}
+        .gen{white-space:nowrap;border:1px solid #303948;background:#1a2029;color:#dfe5ec;border-radius:10px;padding:8px 11px;cursor:pointer;font-weight:700}
+        .gen:hover{border-color:#475367;background:#202733}
+        .actions{display:flex;align-items:end;gap:10px;margin-top:20px}
+        .client-wrap{flex:1;min-width:180px}
+        .physical-toggle{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:18px;padding:13px 14px;border:1px solid #2b313c;border-radius:13px;background:#0d1015;cursor:pointer;transition:.18s ease}.physical-toggle:hover{border-color:#3b4658;background:#10141b}.physical-toggle:focus-visible{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px #7c5cff1a}
+        .physical-copy{min-width:0}.physical-title{font-weight:700}.physical-note{font-size:11px;color:#687385;margin-top:3px}
+        .switch{position:relative;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;width:46px;height:26px;margin:0}
+        .switch input{position:absolute;opacity:0;width:1px;height:1px}
+        .slider{position:relative;width:100%;height:100%;border-radius:999px;background:#262c36;border:1px solid #343c49;cursor:pointer;transition:.18s ease}
+        .slider::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#8b95a5;transition:.18s ease}
+        .switch input:checked + .slider{background:#6f50e8;border-color:#7c5cff}
+        .switch input:checked + .slider::after{transform:translateX(20px);background:#fff}
+        .switch input:focus-visible + .slider{box-shadow:0 0 0 3px #7c5cff1a}
+        .connect{border:0;background:linear-gradient(135deg,var(--accent),#5d8cff);color:white;font-weight:800;border-radius:13px;padding:12px 62px;min-height:44px;cursor:pointer;box-shadow:0 10px 28px #7c5cff26}
+        .connect:hover{filter:brightness(1.07);transform:translateY(-1px)}
+        .status{min-height:18px;color:var(--muted);font-size:12px;margin-top:11px}
+        .empty{padding:24px;text-align:center;border:1px dashed #2f3948;border-radius:14px;color:var(--muted)}
+        .color-section{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+        .settings-divider{height:1px;background:var(--line);margin:24px 0 20px}
+        .project-credit{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin:9px 2px 0 0;color:rgba(255,255,255,.42);font-size:12px;line-height:1.4;white-space:nowrap}
+        .project-credit a{color:rgba(255,255,255,.62);text-decoration:none;transition:color .15s ease}
+        .project-credit a:hover,.project-credit a:focus-visible{color:rgba(255,255,255,.95)}
+        @media(max-width:700px){.hero-row{display:flex;flex-direction:column;align-items:stretch;gap:2px}.project-credit{justify-content:center;flex-wrap:wrap;white-space:normal;margin:0;text-align:center;width:100%}}
+        @media(max-width:620px){.wrap{width:min(100% - 20px,980px);padding-top:28px}.panel{padding:15px}.form{grid-template-columns:1fr}.actions{align-items:stretch;flex-direction:column}.connect{width:100%}}
+    </style>
+</head>
+<body>
+<main class="wrap">
+    <header class="hero">
+        <div class="eyebrow">Controller setup</div>
+        <h1>Configure your controller</h1>
+        <div class="hero-row">
+            <p class="sub">Pick a layout and color - optionally Twitch Chat Input and WebSocket target</p>
+            <div class="project-credit" aria-label="PadForge attribution">
+                <span>Inspired by</span>
+                <a href="https://padforge.org/" target="_blank" rel="noopener noreferrer">PadForge</a>
+                <a href="https://github.com/hifihedgehog/PadForge" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="panel">
+        <section class="section">
+            <div class="section-head">
+                <div><h2 class="section-title">Layout</h2><p class="section-note">Choose controller layout and theme.</p></div>
+                <label class="advanced-toggle" title="Show advanced connection settings">
+                    <span>Advanced setup</span>
+                    <span class="switch">
+              <input id="advanced" type="checkbox" aria-label="Advanced setup">
+              <span class="slider" aria-hidden="true"></span>
+            </span>
+                </label>
+            </div>
+
+            <div id="layoutGrid" class="grid layout-grid"></div>
+            <div id="colorSection" class="color-section" hidden>
+                <div class="section-head" style="margin-bottom:12px">
+                    <div><h3 class="section-title">Color</h3><p class="section-note">Choose the visual color for selected layout.</p></div>
+                </div>
+                <div id="colorGrid" class="grid"></div>
+            </div>
+        </section>
+
+        <div class="settings-divider" aria-hidden="true"></div>
+
+        <section class="section advanced-section" id="twitchSection" hidden>
+            <details class="twitch">
+                <summary><span>Twitch chat <span class="optional">optional</span></span></summary>
+                <div class="details-body">
+                    <div class="form">
+                        <div class="field"><label for="channel">Channel</label><input id="channel" type="text" autocomplete="off" placeholder="twitchchannel"></div>
+                        <div class="field"><label for="login">Login</label><input id="login" type="text" autocomplete="username" placeholder="loginname"></div>
+                        <div class="field full">
+                            <label for="token">Token <button class="gen" type="button" id="generateToken">Generate token</button></label>
+                            <input id="token" type="password" autocomplete="off" placeholder="paste Twitch token">
+                            <div class="hint">Opens Twitch Token Generator in a new tab.</div>
+                        </div>
+                    </div>
+                </div>
+            </details>
+        </section>
+
+        <section class="section advanced-section" id="websocketSection" hidden>
+            <details class="websocket">
+                <summary><span>WebSocket target <span class="optional">optional</span></span></summary>
+                <div class="details-body">
+                    <div class="form">
+                        <div class="field"><label for="host">Host</label><input id="host" type="text" autocomplete="off" placeholder="127.0.0.1"></div>
+                        <div class="field"><label for="port">Port</label><input id="port" type="number" inputmode="numeric" min="1" max="65535" placeholder="8080"></div>
+                    </div>
+                </div>
+            </details>
+        </section>
+
+        <div class="physical-toggle" id="physicalToggle" role="switch" aria-checked="false" tabindex="0">
+            <div class="physical-copy">
+                <div class="physical-title">Physical gamepad</div>
+                <div class="physical-note">Pass connected PC gamepad inputs through the controller.</div>
+            </div>
+            <label class="switch" aria-label="Enable physical gamepad">
+                <input id="physical" type="checkbox">
+                <span class="slider" aria-hidden="true"></span>
+            </label>
+        </div>
+
+        <div class="actions">
+            <div class="client-wrap">
+                <label for="client">Client <span class="optional">optional · auto-generated by app</span></label>
+                <input id="client" class="client muted-input" type="text" autocomplete="off" placeholder="leave empty for generated UUID">
+            </div>
+            <button class="connect" type="button" id="connect">Connect</button>
+        </div>
+        <div id="status" class="status" aria-live="polite"></div>
+    </div>
+</main>
+
+<script>
+    const FALLBACK = { layout: 'xbox360', color: 'default' };
+    const $ = (id) => document.getElementById(id);
+    const state = { layout: null, color: FALLBACK.color, colors: [] };
+
+    function normalizeName(name) {
+        return decodeURIComponent(name).replace(/\/$/, '').replace(/^.*\//, '');
+    }
+
+    async function getDirectoryLinks(path) {
+        try {
+            const res = await fetch(path, { cache: 'no-store' });
+            if (!res.ok) throw new Error('directory request failed');
+            const html = await res.text();
+            const doc = new DOMParser().parseFromString(html, 'text/html');
+            return [...doc.querySelectorAll('a[href]')].map(a => a.getAttribute('href')).filter(Boolean);
+        } catch { return []; }
+    }
+
+    async function discoverLayouts() {
+        const links = await getDirectoryLinks('layouts/');
+        const names = [...new Set(links.filter(h => /\/$/.test(h)).map(normalizeName).filter(name => name && name !== '.' && name !== '..' && name.toLowerCase() !== 'default'))];
+        return names.length ? names : [FALLBACK.layout];
+    }
+
+    async function discoverColors(layout) {
+        const links = await getDirectoryLinks(`layouts/${encodeURIComponent(layout)}/`);
+        const colors = links
+            .filter(h => /\.json(?:[?#].*)?$/i.test(h))
+            .map(h => normalizeName(h).replace(/\.json$/i, ''))
+            .filter(Boolean);
+        if (!colors.length) return [FALLBACK.color];
+        return [...new Set(colors)];
+    }
+
+    async function loadColor(layout, color) {
+        try {
+            const res = await fetch(`layouts/${encodeURIComponent(layout)}/${encodeURIComponent(color)}.json`, { cache: 'no-store' });
+            if (!res.ok) throw new Error('json request failed');
+            return await res.json();
+        } catch { return null; }
+    }
+
+    function createCard({ name, selected, image, onClick }) {
+        const card = document.createElement('button');
+        card.type = 'button';
+        card.className = `card${selected ? ' selected' : ''}`;
+        card.innerHTML = `<div class="preview">${image ? `<img loading="lazy" alt="${name} preview" src="${image}">` : `<div class="fallback-preview">${name}</div>`}</div><div class="card-body"><span class="name">${name}</span><span class="badge">${selected ? 'selected' : 'select'}</span></div>`;
+        card.addEventListener('click', onClick);
+        return card;
+    }
+
+    let availableLayouts = [];
+    const colorCache = new Map();
+    const colorCards = new Map();
+    const layoutImageCache = new Map();
+
+    function renderLayouts() {
+        const grid = $('layoutGrid');
+        grid.innerHTML = '';
+        availableLayouts.forEach(layout => {
+            const card = createCard({
+                name: layout,
+                selected: state.layout === layout,
+                image: layoutImageCache.get(layout) || '',
+                onClick: () => selectLayout(layout)
+            });
+            grid.appendChild(card);
+        });
+    }
+
+    function normalizePathPart(value) {
+        return String(value || '')
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '');
+    }
+
+    async function discoverControllerOverlay(layout) {
+        const cacheKey = String(layout);
+        if (layoutImageCache.has(cacheKey)) return layoutImageCache.get(cacheKey);
+
+        const modelsRoot = 'img/2DModels/';
+        const wantedLayout = normalizePathPart(layout);
+        const rootLinks = await getDirectoryLinks(modelsRoot);
+        const folders = [...new Set(
+            rootLinks
+                .filter(h => /\/$/.test(h))
+                .map(normalizeName)
+                .filter(name => name && name !== '.' && name !== '..')
+        )];
+
+        const exactFolder = folders.find(folder => normalizePathPart(folder) === wantedLayout);
+        const preferredFolders = exactFolder ? [exactFolder] : folders.filter(folder => {
+            const key = normalizePathPart(folder);
+            return key.includes(wantedLayout) || wantedLayout.includes(key);
+        });
+
+        let candidate = '';
+        const inspectFolders = preferredFolders.length ? preferredFolders : folders;
+
+        for (const folder of inspectFolders) {
+            const links = await getDirectoryLinks(`${modelsRoot}${encodeURIComponent(folder)}/`);
+            const files = links
+                .filter(h => !/\/$/.test(h))
+                .map(normalizeName);
+
+            const overlay = files.find(file => /Controller Overlay\.png$/i.test(file));
+            if (overlay) {
+                candidate = `${modelsRoot}${encodeURIComponent(folder)}/${encodeURIComponent(overlay)}`;
+                break;
+            }
+        }
+
+        if (!candidate && inspectFolders !== folders) {
+            for (const folder of folders) {
+                const links = await getDirectoryLinks(`${modelsRoot}${encodeURIComponent(folder)}/`);
+                const files = links.filter(h => !/\/$/.test(h)).map(normalizeName);
+                const overlay = files.find(file => {
+                    if (!/Controller Overlay\.png$/i.test(file)) return false;
+                    const haystack = normalizePathPart(`${folder} ${file}`);
+                    return haystack.includes(wantedLayout);
+                });
+                if (overlay) {
+                    candidate = `${modelsRoot}${encodeURIComponent(folder)}/${encodeURIComponent(overlay)}`;
+                    break;
+                }
+            }
+        }
+
+        layoutImageCache.set(cacheKey, candidate);
+        await preloadImage(candidate);
+        return candidate;
+    }
+
+    async function loadLayoutPreviews() {
+        await Promise.all(availableLayouts.map(async layout => {
+            const image = await discoverControllerOverlay(layout);
+            const card = [...$('layoutGrid').querySelectorAll('.card')].find(el => el.querySelector('.name')?.textContent === layout);
+            if (!card || !image) return;
+            const preview = card.querySelector('.preview');
+            if (!preview) return;
+            const img = document.createElement('img');
+            img.alt = `${layout} preview`;
+            img.src = image;
+            preview.replaceChildren(img);
+        }));
+    }
+
+    function updateColorSelection() {
+        colorCards.forEach((card, color) => {
+            const selected = color === state.color;
+            card.classList.toggle('selected', selected);
+            const badge = card.querySelector('.badge');
+            if (badge) badge.textContent = selected ? 'selected' : 'select';
+        });
+    }
+
+    function preloadImage(src) {
+        if (!src) return Promise.resolve();
+        return new Promise(resolve => {
+            const img = new Image();
+            img.onload = img.onerror = () => resolve();
+            img.src = src;
+        });
+    }
+
+    async function loadColorsForLayout(layout) {
+        const cached = colorCache.get(layout);
+        if (Array.isArray(cached)) return cached;
+        if (cached) return cached;
+
+        const promise = (async () => {
+            const colors = await discoverColors(layout);
+            const configs = await Promise.all(colors.map(async color => [color, await loadColor(layout, color)]));
+            const withImages = configs.map(([color, cfg]) => {
+                const basePath = cfg && typeof cfg.basePath === 'string' ? cfg.basePath : '';
+                const image = basePath ? `img/${basePath.replace(/^\/+/, '')}` : '';
+                return [color, cfg, image];
+            });
+            await Promise.all(withImages.map(([, , image]) => preloadImage(image)));
+            colorCache.set(layout, withImages);
+            return withImages;
+        })();
+
+        colorCache.set(layout, promise);
+        return promise;
+    }
+
+    async function selectLayout(layout) {
+        state.layout = layout;
+        renderLayouts();
+        colorCards.clear();
+
+        const section = $('colorSection');
+        const grid = $('colorGrid');
+        section.hidden = false;
+
+        const cached = colorCache.get(layout);
+        if (!Array.isArray(cached)) grid.innerHTML = '<div class="empty">Loading colors…</div>';
+
+        const configs = await loadColorsForLayout(layout);
+        if (state.layout !== layout) return;
+
+        state.colors = configs.map(([color]) => color);
+        if (!state.colors.includes(state.color)) state.color = state.colors[0] || FALLBACK.color;
+
+        grid.innerHTML = '';
+        configs.forEach(([color, cfg, image]) => {
+            const card = createCard({
+                name: color,
+                selected: state.color === color,
+                image,
+                onClick: () => {
+                    state.color = color;
+                    updateColorSelection();
+                }
+            });
+            colorCards.set(color, card);
+            grid.appendChild(card);
+        });
+        updateColorSelection();
+    }
+
+    function renderColors() {
+        const section = $('colorSection');
+        if (!state.layout) {
+            section.hidden = true;
+            $('colorGrid').innerHTML = '';
+            state.colors = [];
+            colorCards.clear();
+        }
+    }
+
+    function setupPhysicalToggle() {
+        const panel = $('physicalToggle');
+        const input = $('physical');
+
+        const sync = () => {
+            panel.setAttribute('aria-checked', String(input.checked));
+        };
+
+        panel.addEventListener('click', event => {
+            if (event.target.closest('.switch')) return;
+            input.checked = !input.checked;
+            sync();
+        });
+
+        panel.addEventListener('keydown', event => {
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            event.preventDefault();
+            input.checked = !input.checked;
+            sync();
+        });
+
+        input.addEventListener('change', sync);
+        sync();
+    }
+
+    function setupClientField() {
+        const input = $('client');
+        const update = () => input.classList.toggle('has-value', input.value.trim().length > 0);
+        input.addEventListener('input', update);
+        update();
+    }
+
+    function setupAdvancedToggle() {
+        const toggle = $('advanced');
+        const update = () => {
+            const visible = toggle.checked;
+            $('twitchSection').hidden = !visible;
+            $('websocketSection').hidden = !visible;
+        };
+        toggle.addEventListener('change', update);
+        update();
+    }
+
+    function setupTokenButton() {
+        $('generateToken').addEventListener('click', () => {
+            window.open('https://twitchtokengenerator.com/quick/sh8gi7wxv0', '_blank', 'noopener,noreferrer');
+        });
+    }
+
+    function buildUrl() {
+        const params = new URLSearchParams();
+        const values = {
+            host: $('host').value.trim(), port: $('port').value.trim(), layout: state.layout,
+            color: state.color, client: $('client').value.trim(), channel: $('channel').value.trim(),
+            login: $('login').value.trim(), token: $('token').value.trim()
+        };
+        Object.entries(values).forEach(([key, value]) => {
+            if (!value) return;
+            if (key === 'layout' && value === FALLBACK.layout) return;
+            if (key === 'color' && value === FALLBACK.color) return;
+            params.set(key, value);
+        });
+        if ($('physical').checked) params.set('physical', '1');
+        return new URL(`controller.html${params.toString() ? `?${params.toString()}` : ''}`, window.location.href).href;
+    }
+
+    $('connect').addEventListener('click', () => {
+        const url = buildUrl();
+        $('status').textContent = `Opening controller…`;
+        window.open(url, '_blank', 'noopener,noreferrer');
+    });
+
+    setupClientField();
+    setupPhysicalToggle();
+    setupTokenButton();
+    setupAdvancedToggle();
+    discoverLayouts().then(layouts => {
+        availableLayouts = layouts;
+        renderLayouts();
+        loadLayoutPreviews();
+    }).catch(() => {
+        availableLayouts = [FALLBACK.layout];
+        renderLayouts();
+        loadLayoutPreviews();
+    });
+    renderColors();
+</script>
+</body>
+</html>

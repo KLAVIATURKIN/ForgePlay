@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Forge Play</title>
+
+        <meta name="viewport"
+              content="
+                width=device-width,
+                initial-scale=1.0,
+                maximum-scale=1.0,
+                user-scalable=no"
+        >
+        <meta name="mobile-web-app-capable"
+              content="yes"
+        >
+
+        <link rel="icon" href="./favicon.ico">
+        <link rel="stylesheet" href="./controller.css">
+    </head>
+    <body>
+        <div id="statusBar">Loading controller...</div>
+
+        <div id="controller-viewport">
+            <div id="controller-container">
+                <img id="base-image" class="base" alt=""/>
+            </div>
+            <div id="touch-layer">
+                <div id="left-stick-zone" class="stick-zone"></div>
+                <div id="right-stick-zone" class="stick-zone"></div>
+            </div>
+        </div>
+
+        <div id="warning-portrait">
+            <h2>Rotate to landscape mode</h2>
+        </div>
+
+        <div id="disconnect-message">
+            <h2>Disconnected. Tap to reconnect.</h2>
+        </div>
+
+        <script src="./js/nipplejs.js"></script>
+        <script src="./js/comfy.min.js"></script>
+        <script src="./js/controller.js"></script>
+    </body>
+</html>
