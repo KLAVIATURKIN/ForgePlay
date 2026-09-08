@@ -129,6 +129,10 @@ _At the end of every chat sequence, the controller is reset to a safe neutral st
 > Press A, wait 500 ms, then press B.\
 > `!a #500ms b`
 
+> Easy-peasy, isn't it? (if not READ AGAIN).\
+> `!_b+right1467ms -right+left #120ms a300ms left50ms #300ms a -b600ms _right100ms a -right #1200ms _right250ms a1s -right #600ms a`
+
+
 ---
 
 ## Web Gamepad
