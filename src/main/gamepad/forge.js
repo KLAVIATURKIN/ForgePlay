@@ -33,7 +33,7 @@ export function connect(
     // location connection target details
     const locationProtocol = typeof location !== "undefined" ? location.protocol : ""
     const locationHost = typeof location !== "undefined" ? location.hostname : "127.0.0.1";
-    const proto = locationProtocol === "https:" ? "wss:" : "wss:";
+    const proto = locationProtocol === "https:" ? "wss:" : "ws:";
     const host = targetHost ? targetHost : locationHost;
     const port = targetPort ? targetPort : "8080";
     const target = host + ":" + port;

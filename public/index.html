@@ -198,13 +198,13 @@
     }
 
     async function discoverLayouts() {
-        const links = await getDirectoryLinks('layouts/');
+        const links = await getDirectoryLinks('/layouts/');
         const names = [...new Set(links.filter(h => /\/$/.test(h)).map(normalizeName).filter(name => name && name !== '.' && name !== '..' && name.toLowerCase() !== 'default'))];
         return names.length ? names : [FALLBACK.layout];
     }
 
     async function discoverColors(layout) {
-        const links = await getDirectoryLinks(`layouts/${encodeURIComponent(layout)}/`);
+        const links = await getDirectoryLinks(`/layouts/${encodeURIComponent(layout)}/`);
         const colors = links
             .filter(h => /\.json(?:[?#].*)?$/i.test(h))
             .map(h => normalizeName(h).replace(/\.json$/i, ''))
@@ -259,7 +259,7 @@
         const cacheKey = String(layout);
         if (layoutImageCache.has(cacheKey)) return layoutImageCache.get(cacheKey);
 
-        const modelsRoot = 'img/2DModels/';
+        const modelsRoot = '/img/2DModels/';
         const wantedLayout = normalizePathPart(layout);
         const rootLinks = await getDirectoryLinks(modelsRoot);
         const folders = [...new Set(
@@ -354,7 +354,7 @@
             const configs = await Promise.all(colors.map(async color => [color, await loadColor(layout, color)]));
             const withImages = configs.map(([color, cfg]) => {
                 const basePath = cfg && typeof cfg.basePath === 'string' ? cfg.basePath : '';
-                const image = basePath ? `img/${basePath.replace(/^\/+/, '')}` : '';
+                const image = basePath ? `/img/${basePath.replace(/^\/+/, '')}` : '';
                 return [color, cfg, image];
             });
             await Promise.all(withImages.map(([, , image]) => preloadImage(image)));
