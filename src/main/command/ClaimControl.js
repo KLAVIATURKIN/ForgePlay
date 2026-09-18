@@ -323,6 +323,10 @@ export class ClaimControl {
             return true;
         }
 
+        if (message.isModerator()) {
+            return true;
+        }
+
         return this.normalize(message.user) === this.normalize(this.getOwner());
     }
 
